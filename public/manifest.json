@@ -1,0 +1,15 @@
+{
+  "short_name": "Call Up",
+  "name": "Helping people find, activate, and empower the change makers in their lives",
+  "icons": [
+    {
+      "src": "callup-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

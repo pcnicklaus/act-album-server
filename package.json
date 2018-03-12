@@ -1,0 +1,28 @@
+{
+  "name": "callup",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.21.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-dotdotdot": "^1.1.0",
+    "react-infinite": "^0.12.1",
+    "react-masonry-component": "^5.0.7",
+    "react-redux": "^4.0.0",
+    "react-router": "^2.0.1",
+    "react-scripts": "1.0.11",
+    "react-share": "^1.15.1",
+    "redux": "^3.0.4",
+    "redux-form": "^5.0.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

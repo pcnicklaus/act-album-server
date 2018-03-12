@@ -1,0 +1,76 @@
+.uj {
+    width: 100%;
+    /* background-color: red; */
+    background-color: #D1D8E1;
+}
+
+.uj__header {
+    text-align: center;
+    font-size: 2.8rem;
+    padding: 0;
+    margin: 0;
+}
+.uj_header > h2 {
+   padding: 0;
+    margin: 0;
+
+}
+.uj__body {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.uj__body__userActs {
+    height: 90vh;
+    display: flex;
+    flex: 0 0 60%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y:scroll; 
+    overflow-x:hidden;
+    justify-content: center;
+    padding-right: 1rem;
+}
+
+.uj__body__controls {
+    display: flex;
+    height: 90%;
+    /* flex: 0 0 20%; */
+}
+
+.uj__act {
+    height: 10rem;
+}
+
+.uj__body__box {
+    /* padding: 0 1rem; */
+    /* border: 1px solid darkgrey; */
+}
+
+.uj__body__box__title {
+    /* display: flex; */
+    /* flex-direction: column; */
+    padding: 0;
+    margin: 0;
+    font-family: Comfortaa;
+    font-size: 1.4rem;
+    font-weight: 200;
+    text-align: center;
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid darkgrey;
+    /* width: 80%; */
+    /* display: flex;
+    justify-content: center; */
+}
+.uj__body__communityActs {
+    width: 100%;
+    height: 90vh;
+    margin-right: 1.5rem;
+    flex: 0 0 16%;
+    align-content: flex-start;
+    overflow-y:scroll; 
+    overflow-x:hidden;
+}
+
