@@ -1,14 +1,16 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import moment from 'moment';
 import axios from 'axios';
-import Infinite from'react-infinite';
 
+import SelectingFormValuesForm from './act_create';
 
 import Card from '../components/card';
 import ActForm from './act_form';
+import Modal from '../components/modal';
 
 import * as actions from '../actions'
 import './journal.css';
@@ -403,17 +405,30 @@ class Journal extends Component {
         description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
         image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
       }
-    ]
+    ],
+    isModalOpen: false,
+    kind: '',
+    visibility: 'public',
+    name: '',
+    title: '',
+    description: '',
+    image: ''
   }
 
   async componentWillMount() {
     // console.log('this.state compoentnly will mount', this.state, '\n this.props\n', this.props);
-    await this.props.fetchActs()
+    // await this.props.fetchActs()
     // await this.props.fetchUserActs(this.props.currentUser);
     // await this.props.fetchUserActs(1);
     // await this.props.fetchUserActs(this.props.user);
-    console.log('compoentnt will mpoutn user',this.props)
+    // console.log('compoentnt will mpoutn user',this.props)
   }
+
+  async componentDidMount() {
+    await this.props.fetchActs();
+  }
+
+
   checkDate(date) {
     // console.log('date', date, 'previousDate',this.state.previousDate);
     this.state.previousDate = date;
@@ -421,7 +436,7 @@ class Journal extends Component {
 
   // return this.props.user.acts.map((act) => 
   renderGrid() {
-
+    console.log('thisssssss', this.props);
     return this.state.acts.map((act) => {
 
       let dateHeader = this.checkDate(act.updated_at, this.state.previousDate);
@@ -442,8 +457,9 @@ class Journal extends Component {
         <Card className="uj_act" act={ act } />
       )
     })
-    console.log('thisprops', this.props)
+    // console.log('thisprops', this.props)
   }
+
 
   // <div className="uj__act" style={{ backgroundImage: `url(${act.image})`}}>
   //         <h1>{act.user}</h1>
@@ -457,56 +473,78 @@ class Journal extends Component {
         <div className="uj">
 
           <div className="uj__header">
-            <h2 className="uj__header__title">Act Album</h2>
+            
+            <div className="uj__header__logo">
+              <h1 className="uj__header__logo__do">do</h1>
+              <h1 className="uj__header__logo__thank">thank</h1>
+
+            </div>
+
+            <div className="uj__header__buttons">
+            
+              
+                <button className="uj__header__nav__button">
+                <Link className="uj__header__nav__button__link" to={'/'}>home</Link>
+                </button>
+           
+              
+                <button className="uj__header__nav__button">
+                <Link className="uj__header__nav__button__link" to={'/do'} >do</Link>
+                </button>
+              
+              
+                <button className="uj__header__nav__button">
+                <Link className="uj__header__nav__button__link" to={'/thank'}>thank</Link>
+                </button>
+              
+            </div>
+
           </div>
 
           <div className="uj__body">
 
-
             <div className="uj__body__box">
 
-              <h5 className="uj__body__box__title">Community Acts</h5>
-
+              <h2 className="uj__body__box__title">your do thanks</h2>
+              <div className="uj__body__userActs">
+                { this.renderGrid() }
+              </div>
+          
+              <h2 className="uj__body__box__title">recent community do thanks</h2>
               <div className="uj__body__communityActs">
                 { this.renderCommunityGrid() }
               </div>
-            </div>
 
-            <div className="uj__body__userActs">
-              { this.renderGrid() }
-            </div>
-
-            <div className="uj__body__controls">
-              <ActForm history={ this.props.history }/>
             </div>
           
           </div>
 
-        
         </div>
     )
 
   }
 }
-{/* <Infinite elementHeight={40}
-                         containerHeight={250}
-                         infiniteLoadBeginEdgeOffset={200}
-                         onInfiniteLoad={this.handleInfiniteLoad}
-                         loadingSpinnerDelegate={this.elementInfiniteLoad()}
-                         isInfiniteLoading={this.state.isInfiniteLoading}
-                         >
-            {this.state.elements}
-        </Infinite>; */}
+
+{/* <div className="uj__body__controls">
+  <SelectingFormValuesForm onSubmit=  { (results) => console.log("results", results) } />
+</div> */}
+      //   <div className="uj__body__controls">
+      //   <ActForm history={ this.props.history }/>
+      // </div>
 
 function mapStateToProps(state) {
-  console.log("state", state)
+  console.log("state map state ot props", state)
   return {
+    user: state.auth,
     acts: state.acts
   }
   // return state;
 }
 
 export default connect(mapStateToProps, actions)(Journal)
+
+
+
 
 // const FORM_FIELDS = {
 //   who: {
@@ -530,7 +568,7 @@ export default connect(mapStateToProps, actions)(Journal)
 //     class: 'col-md-6',
 //   },
 
-//   imageURL: {
+//   image: {
 //     type: 'input',
 //     label: 'please include a link to a good pic of them! not on horrible sweater day...',
 //     class: 'col-md-12'
@@ -640,3 +678,84 @@ export default connect(mapStateToProps, actions)(Journal)
 // }, null, actions)(CallUp);
 
 //// Dosis|Droid+Sans|Lobster|Nunito|PT+Sans+Narrow|Quicksand|Shadows+Into+Light|Varela+Round
+
+// <Modal
+//   isOpen={this.state.isModalOpen}
+//   onClose={() => this.closeModal()}
+// >
+
+//   <div>
+//     <h1>Give a boom!</h1>
+//     <p>In other words, sign a nomination/petition for them!</p>
+
+//     <hr  />
+
+//     <fieldset className='form-group'>
+
+//       <input id="thank" name="kind" type="radio" className="actForm__radio__input" value="do" onChange={this.handleChange} />
+//       <label htmlFor="thank" className="actForm__radio__label">Do</label>
+
+//       <input id="thank" name="kind" type="radio" className="actForm__radio__input" value="thank" onChange={this.handleChange} />
+//       <label htmlFor="thank" className="actForm__radio__label">Thank</label>
+
+//     </fieldset>
+
+//     <fieldset className='form-group'>
+
+//       <input id="kind" name="visibility" type="radio" className="actForm__radio__input" value="do" onChange={this.handleChange}  />
+//       <label htmlFor="kind" className="actForm__radio__label">Share</label>
+
+//       <input id="kind" name="visibility" type="radio" className="actForm__radio__input" value="private" onChange={this.handleChange}  />
+//       <label htmlFor="private" className="actForm__radio__label">Private</label>
+
+//     </fieldset>
+
+//     <fieldset className='form-group'>
+//       <label>Image URL</label>
+//       <input id='formImage' className='form-control' name='image' type='text'  onChange={this.handleChange} value={this.state.image} />
+//     </fieldset>
+
+//     <fieldset className='form-group'>
+//       <label>Name</label>
+//       <input id='formName' className='form-control' name='name' type='text' required onChange={this.handleChange} value={this.state.name} />
+//     </fieldset>
+//     <fieldset className='form-group'>
+//       <label>Title</label>
+//       <input
+//         id='formEmail' className='form-control' name='title' type='text'  onChange={this.handleChange} value={this.state.title} />
+//     </fieldset>
+//     <fieldset className='form-group'>
+//         <label>Description</label>
+//         <input id='formDescription' className='form-control' name='description' type='text'  onChange={this.handleChange} value={this.state.description} />
+//     </fieldset>
+//     <fieldset className='form-group'>
+//         <label>Image URL</label>
+//         <input id='formImage' className='form-control' name='image' type='text'  onChange={this.handleChange} value={this.state.image} />
+//     </fieldset>
+
+
+//     <button
+//       type="button"
+//       className="btn-group pull-right"
+//       onClick={ () => this.closeModal() }
+//       style={{ color: '#fffff', padding: 10, backgroundColor: '#004687', border: 'none', width: 110 }}
+//     >
+//       <p style={{ fontSize: 1.2 + 'em', justifyContent: 'center', margin: 0, color: '#fff' }}>Close
+//       </p>
+
+//     </button>
+
+//     <button
+//       type="button"
+//       className='btn-group pull-right'
+//       onClick={() => this.createNewAct() }
+//       style={{ color: '#fffff', padding: 10, backgroundColor: '#ff442c', border: 'none', width: 120, marginRight: 1 }}
+//     >
+//       <p style={{ fontSize: 1.2 + 'em', justifyContent: 'center', margin: 0, color: '#fff' }}>
+//         Boooooom!!
+//       </p>
+//     </button>
+
+
+//   </div>
+// </Modal>

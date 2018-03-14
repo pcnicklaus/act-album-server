@@ -16,10 +16,19 @@ class Home extends Component {
   render() {
 
     return(
-      <section className="container">
-
+      <section>
+        <div className="container">
 
           <div className="header">
+
+            <div className="uj">
+              <div className="uj__header home__logo">
+                <div className="uj__header__logo">
+                  <h1 className="uj__header__logo__do">do</h1>
+                  <h1 className="uj__header__logo__thank">thank</h1>
+                </div>
+              </div>
+            </div>
             <div className="header--verbiage">
               <h1 className="header--believe">We believe</h1>
               <h2 className="header--small">small acts can cause</h2>
@@ -31,9 +40,9 @@ class Home extends Component {
 
           <div className="how">
             <div className="how__title">
-             <h2>Our four step plan</h2> 
-             <h2>to change the world</h2>
-             <p>and by that we mean how we hope to spread good while helping people be happier</p>
+            <h2>Our four step plan</h2> 
+            <h2>to change the world</h2>
+            <p>and by that we mean how we hope to spread good while helping people be happier</p>
             </div>
             <div className="how__two">
               <div className="how__two__left">
@@ -64,8 +73,8 @@ class Home extends Component {
               </div>
             </div>
             <div className="how__conclusion">
-             <h2>we hope that makes sense</h2>
-             <h2>and you're ready to give it a shot</h2>
+            <h2>we hope that makes sense</h2>
+            <h2>and you're ready to give it a shot</h2>
             </div>
           </div>
 
@@ -74,7 +83,7 @@ class Home extends Component {
               <h2>do</h2>
               <p>(help, share, volunteer...)</p>
             </div>
-            <Link to="#" className="link">
+            <Link to="/do" className="link">
               <div className="do--image"></div>
             </Link>
           </div>
@@ -83,14 +92,14 @@ class Home extends Component {
           <div className="thank">
             <div className="thank--image"></div>
             <div className="thank--verbiage">
-                <h2>appreciate</h2>
-                <p>(thank, greet, commend...)</p>
+                <h2>thank</h2>
+                <p>(appreciate, commend...)</p>
             </div>
           </div>
 
             <div className="journal">
               <div className="journal--verbiage">
-                <h2>Journal</h2>
+                <h2>journal</h2>
                 <p>(all the good! yay!)</p>
               </div>
               <Link to={`/journal`} className="link">
@@ -98,14 +107,10 @@ class Home extends Component {
               </Link>
             </div>
 
-
-          <div className="footer" style={{ backgroundColor: 'bluegreen' }}>
-             <div className="footer__left"></div>
-             <div className="footer__middle"></div>
-             <div className="footer__right"></div>
-          </div>
+        </div>
 
       </section>
+      
     )
   }
 
@@ -118,18 +123,3 @@ function mapStateToProps(state){
 
 export default connect(mapStateToProps, actions)(Home)
 
-// side menu for when you get search set up
-// <Menu isOpen = { this.state.isOpen }>
-//   <form onSubmit={ this.handleSubmit }>
-//       <input
-//         key="one"
-//         type="text"
-//         className="form-control"
-//         value={ this.state.value }
-//         onChange={ this.onInputChange }
-//         placeholder="coming soon!"
-//         disabled
-//       />
-//       <input key="two" type='submit' class="form-control" value="Search" disabled />
-//   </form>
-// </Menu>

@@ -13,7 +13,7 @@ export default function( state = {}, action) {
     case FETCH_USER_ACTS: 
       return { ...state, userActs: action.payload }
     case FETCH_ACTS:
-    console.log('state', state, 'action', action);
+    console.log('state act reducer', state, 'action act reducer', action);
 
       return { ...state, communityActs: action.payload }
     case CREATE_ACT:

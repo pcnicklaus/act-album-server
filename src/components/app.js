@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import logo from '../images/callup-favicon.png';
 
 import Header from '../containers/blocks/_header';
@@ -12,9 +14,22 @@ class App extends Component {
     await localStorage.removeItem('token');
   }
 
+  closeNav = () => {
+    document.getElementById('navi_toggle').checked = 'false';
+  }
+
+//   <div className="home__header">
+//   <div className="home__header__logo">
+//     <h1 className="home__header__logo__do">do</h1>
+//     <h1 className="home__header__logo__thank">thank</h1>
+//   </div>
+// </div>
+
   render() {
     return (
       <div className="Home" id="home">
+
+   
 
         <div className="navigation">
 
@@ -30,36 +45,58 @@ class App extends Component {
             <ul className="navigation__list">
 
               <li className="navigation__item">
-                <a href="#popup" className="navigation__link">
-                  <span>01</span>
-                  About
-                </a>
+                <Link to={"/"} className="navigation__link" onClick={ this.closeNav }>
+                  Home
+                </Link>
+              </li>
+              <li className="navigation__item">
+                <Link to={"/do"} className="navigation__link" onClick={ this.closeNav }>
+                  Do
+                </Link>
               </li>
 
               <li className="navigation__item">
-                <a href="#" className="navigation__link">
-                  <span>02</span>
-                  Do
-                </a>
-              </li>
-              <li className="navigation__item">
-                <a href="#" className="navigation__link">
-                  <span>03</span>
+                <Link to={"/thank" }className="navigation__link" onClick={ this.closeNav }>
                   Thank
-                </a>
+                </Link>
               </li>
               <li className="navigation__item">
-                <a href="#" className="navigation__link">
-                <span>04</span>
-                  Stuff
-                </a>
+                <Link to={"/journal"} className="navigation__link" onClick={ this.closeNav }>
+                  Journal
+                </Link>
+              </li>
+              <li className="navigation__item">
+                <Link to={"/story"} className="navigation__link" onClick={ this.closeNav }>
+                  Story
+                </Link>
+              </li>
+              <li className="navigation__item">
+                <Link to={"/resources"} className="navigation__link" onClick={ this.closeNav }>
+                  Resources
+                </Link>
+              </li>
+
+              
+              <li className="navigation__item">
+                <Link to={"/signup"} className="navigation__link" onClick={ this.closeNav }>
+                  sign up
+                </Link>
+              </li>
+              <li className="navigation__item">
+                <Link to={"/signin"} className="navigation__link" onClick={ this.closeNav }>
+                  Sign in
+                </Link>
+              </li>
+              <li className="navigation__item">
+                <Link to={"/signout"} className="navigation__link" onClick={ this.closeNav }>
+                  Sign out
+                </Link>
               </li>
 
             </ul>
           </nav>
 
         </div>
-        {/* <Header /> */}
         { this.props.children }
       </div>
     );

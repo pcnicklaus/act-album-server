@@ -9,11 +9,13 @@ import App from './components/app';
 import Home from './containers/landing';
 
 // import CallUp from './containers/callup_create';
-import Journal from './containers/callup_create';
+import Journal from './containers/journal';
 
 import CallUpDetail from './containers/callup_detail';
 import Story from './components/story';
 import Resources from './components/resources';
+import ThankForm from './components/form_thank';
+import DoForm from './components/form_do';
 
 // auth components
 import Signin from './components/auth/signin';
@@ -40,6 +42,8 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         <Route path="signout" component={Signout} />
         <Route path="story" component={Story} />
+        <Route path="thank" component={ThankForm} />
+        <Route path="do" component={DoForm} />
         <Route path="resources" component={Resources} />
         <Route path="journal" component={ RequireAuth(Journal) } />
         <Route path="callup/:id" component={CallUpDetail} />

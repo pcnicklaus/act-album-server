@@ -2,6 +2,9 @@ import React from 'react';
 
 class Modal extends React.Component {
   render() {
+
+    console.log('this.props in modal', this.props)
+    
     if (this.props.isOpen === false)
       return null
 

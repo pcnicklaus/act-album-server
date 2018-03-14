@@ -109,6 +109,7 @@ export function fetchUserActs(user_id) {
 
 export function createAct(formData, cb) {
   return function(dispatch) {
+    console.log('formData', formData)
     axios.post(`${ROOT_URL}/act`, formData, {
       headers: { authorization: localStorage.getItem('token')}
     })

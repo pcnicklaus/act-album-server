@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import { Link } from 'react-router';
 import * as actions from '../../actions';
+
+import './auth.css';
 
 const FIELDS = {
   email: {
@@ -18,7 +21,7 @@ const FIELDS = {
   },
   passwordConfirm: {
     type: 'password',
-    label: 'Rinse and repeat. w/o the rinse :)'
+    label: 'Rinse and repeat :)'
   }
 }
 
@@ -42,11 +45,12 @@ class Signup extends Component {
   renderField(fieldConfig, field) {
     const fieldHelper = this.props.fields[field];
     return (
-            <fieldset className="form-group" key={fieldConfig.label}>
-              <label style={{ color: '#fff', fontSize: 1.1 +'em', paddingLeft: 5 }}>{ fieldConfig.label }</label>
+            <fieldset className="signupForm__field" key={fieldConfig.label}>
+              <label className="signupForm__field__label">{ fieldConfig.label }</label>
 
-                <input type={fieldConfig.type} style={{ width: 94 + '%' }} className="form-control"  {...fieldHelper} />
-                {fieldHelper.touched && fieldHelper.error && <div className="error" style={{ color: '#fff', fontFamily: 'Nunito', backgroundColor: 'rgba(255,255,255,0.2)', padding: 5, borderRadius: 3, width: 220 }}>Oops... {fieldHelper.error}</div>}
+                <input 
+                  type={fieldConfig.type} className="signupForm__field__label__input"  {...fieldHelper} />
+                {fieldHelper.touched && fieldHelper.error && <div className="error">Oops... {fieldHelper.error}</div>}
 
             </fieldset>
     )
@@ -57,23 +61,38 @@ class Signup extends Component {
 
     return (
       <div className="signup">
-        <div className="container">
+        <div className="uj__header__logo signup__header__logo"  style={{position: 'absolute'}}>
+          <h1 className="uj__header__logo__do">do</h1>
+          <h1 className="uj__header__logo__thank">thank</h1>
+        </div>
+        <div className="signup__container">
+          <form
+            className="signupForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
+          >
 
-          <div className="center">
-            <form  style={ styles }
-              className="signupForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
-            >
-            <object
-              className="center-block"
-              type="image/svg+xml" data="images/callup_logo_white.svg"
-              width="40%"
-              ></object>
+            <div className="signupForm__fields__box">
+
+              <div className="uj__header__logo signupForm__logo">
+                <h1 className="uj__header__logo__do">do</h1>
+                <h1 className="uj__header__logo__thank">thank</h1>
+              </div>
 
               { _.map(FIELDS, this.renderField.bind(this)) }
               {this.renderAlert()}
-              <button action="submit" className="btn" style={{ backgroundColor: '#004687', color: '#fff', fontFamily: 'Comfortaa', fontSize: 1.2 + 'em' }}>Sign up!</button>
-            </form>
-          </div>
+
+              <div className="signupForm__button">
+                <button className="signupForm__button__cancel" ><Link to={'/'}>Cancel</Link></button>
+                
+                <button action="submit" className="signupForm__button__submit" >Sign up!</button>
+
+              </div>
+
+              
+            </div>
+
+           
+
+          </form>
         </div>
       </div>
     );

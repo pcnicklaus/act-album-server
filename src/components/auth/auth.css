@@ -1,0 +1,180 @@
+.signup, .signin, .thankForm {
+    height: 100vh;
+    font-family: Comfortaa;
+    position: relative;
+}
+.signup__header__logo, .uj__header__logo .signin__header__logo,  {
+    position: absolute !important;
+    background-color: transparent;
+}
+
+.signup__container, .signin__container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.signupForm, .signinForm {
+    padding: 5rem;
+}
+
+.signupForm__logo, .signinForm__logo {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.signupForm__fields__box, .signinForm__fields__box {
+    background-color: rgba(245, 249, 252, 0.9);
+    padding: 4rem 3rem 3rem 3rem;
+    position:relative;
+    border-radius: 5px;
+}
+
+.signupForm__field, .signinForm__field {
+    width: 15rem;
+    padding: .5rem 0;
+    border: none;
+} 
+
+.signupForm__field__label, .signinForm__field__label, .actForm__radio__label, .form__label {
+    /* background-color: purple */
+    font-size: 1.1rem;
+}
+
+.signupForm__field__label__input, .signinForm__field__input, .form__input {
+    display: block;
+    width: 100%;
+    border: none;
+    height: 2rem;
+    font-size: 1.2rem;
+}
+
+.signupForm__button, .signinForm__button, .form__buttons {
+    /* position: absolute; */
+    /* right: 2rem; */
+    bottom: .5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.signinForm__button__submit, .signupForm__button__submit, .signinForm__button__cancel, .signupForm__button__cancel
+.form__buttons__submit, .form__buttons__cancel {
+    border: none;
+    padding: .5rem 1rem;
+    font-family: Comfortaa;
+    font-size: .9rem;
+    margin-left: 5px;
+}
+.signinForm__button__cancel > a, .signupForm__button__cancel > a {
+    border: none;
+    text-decoration: none;
+}
+
+.signinForm__button__submit, .signupForm__button__submit {
+    background-color: 
+}
+
+.alert__message {
+    margin: .5rem;
+    color: orangered;
+}
+
+.thankForm {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* flex: 1; */
+    /* padding: 5rem; */
+}
+
+.thankForm__content {
+    /* padding: 3rem 20rem; */
+    height: 33rem;
+    margin-top: 4rem;
+    padding: 0 3rem;
+    background-color: rgba(245, 249, 252, 0.9);
+    
+
+}
+
+
+
+.thankForm__title {
+    text-align: center;
+    position: relative;
+
+}
+
+.thankForm__title h1 {
+    font-size: 2.2rem;
+    font-weight: 200;
+    color: rgba(255, 114, 159, 1);
+    margin-bottom: 0;
+}
+
+.thankForm__title p {
+    /* font-size: 2.2rem; */
+    color: rgba(255, 114, 159, 1);
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.thankForm__title::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    bottom: 0;
+    left: 10%;
+    bottom: -10px;
+    border-bottom: 1px solid rgba(255, 114, 159, 1);
+}
+
+.form__fieldset {
+    width: 100%;
+    padding: 0;
+    margin: .5rem 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.image__label > span {
+    display: block;
+    font-size: .8rem;
+    margin-right: 3px;
+}
+
+.image__label > span > a { 
+    display: inline-block;
+    margin-left: 4px;
+    text-decoration: none;
+    color: rgba(255, 114, 159, 1);
+}
+
+
+.fieldset__radios {
+    border: none;
+}
+.form__fieldset__radios {
+    width: 100%;
+    text-align: center;
+    /* border: none; */
+    /* margin: .5rem auto; */
+    /* display: flex; */
+    /* justify-content: space-evenly;
+    flex-direction: row;
+     */
+}
+
+.form__input {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.actForm__radio__label {
+    margin-right: 1rem;
+}
