@@ -70,7 +70,7 @@ class DoForm extends Component {
                         <div className='form__fieldset__radios'>
                             <fieldset className='fieldset__radios'>
                                 
-                                <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="share" onChange={this.handleChange} checked />
+                                <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="share" onChange={this.handleChange}  />
                                 <label htmlFor="visibility" className="actForm__radio__label">Share</label>
                             
                                 <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="private" onChange={this.handleChange}  />

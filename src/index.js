@@ -11,7 +11,7 @@ import Home from './containers/landing';
 // import CallUp from './containers/callup_create';
 import Journal from './containers/journal';
 
-import CallUpDetail from './containers/callup_detail';
+import ActDetail from './containers/act_detail';
 import Story from './components/story';
 import Resources from './components/resources';
 import ThankForm from './components/form_thank';
@@ -45,8 +45,9 @@ ReactDOM.render(
         <Route path="thank" component={ThankForm} />
         <Route path="do" component={DoForm} />
         <Route path="resources" component={Resources} />
-        <Route path="journal" component={ RequireAuth(Journal) } />
-        <Route path="callup/:id" component={CallUpDetail} />
+        {/* <Route path="journal" component={ RequireAuth(Journal) } /> */}
+        <Route path="journal" component={ Journal } />
+        <Route path="act/:id" component={ActDetail} />
 
       </Route>
     </Router>

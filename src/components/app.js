@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import logo from '../images/callup-favicon.png';
-
 import Header from '../containers/blocks/_header';
 
 import './app.css';
@@ -11,11 +9,16 @@ import './app.css';
 class App extends Component {
 
   async componentWillUnmount() {
+    console.log('firing');
     await localStorage.removeItem('token');
   }
 
+  componentDidMount() {
+    console.log('logcal storage', localStorage);
+  }
+
   closeNav = () => {
-    document.getElementById('navi_toggle').checked = 'false';
+    // document.getElementById('navi_toggle').checked = 'false';
   }
 
 //   <div className="home__header">

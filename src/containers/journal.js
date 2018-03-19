@@ -1,16 +1,11 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
-import moment from 'moment';
 import axios from 'axios';
-
-import SelectingFormValuesForm from './act_create';
 
 import Card from '../components/card';
 import ActForm from './act_form';
-import Modal from '../components/modal';
 
 import * as actions from '../actions'
 import './journal.css';
@@ -23,390 +18,6 @@ class Journal extends Component {
   
   state = {
     previousDate: '',
-    acts: [
-        { _id: 'a5aa17fe2b7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { _id: 'q5aa17fe2b7d3e7f996a30sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { _id: '5aa17fe2b7d3e7f996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { _id: '5aa17fe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { _id: '5aa17fe2b7d3se7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { _id: '5aa17fe2sb7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: 'w15aa17sfe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howdowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { _id: 'e5adfa17fe2b7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '15aa17fe2b7d3e7f996a30sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { _id: '25aa17fe2b7d3e7f996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { _id: '35aa17fe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { _id: '45aa17fe2b7d3se7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { _id: '65aa17fe2sb7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        {
-          _id: '75aa17sfe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howdowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '335aa17fe2b7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '225aa17fe2b7d3e7f996a30sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { 
-          _id: '115aa17fe2b7d3e7f996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { 
-          _id: '775aa17fe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: 'j5aa17fe2b7d3se7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { 
-          _id: 'jj5aa17fe2sb7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: 'n5aa17sfe2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howdowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        }, 
-        { 
-          _id: 'nn5aa17fe2b7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa5517fe2b7d3e7f996a30sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { 
-          _id: '5aa1667fe2b7d3e7f996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { 
-          _id: '5aa17fye2b7d3e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fyye2b7d3se7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { 
-          _id: '5aa17fe2sbyy7d3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa17sfe2b7d3eyyy7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howdowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7yyd3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e7yyf996a30sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e7fyy996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3eyy7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3syye7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { 
-          _id: '5aa17fe2sb7dyyy3e7f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa17sfe2b7d3e744f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howdowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e744f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'so there was that thing',
-          description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e7f996a5530sd0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'There once was a man',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-          image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e777f996as30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'thank',
-          title: 'Yay so there was that thing',
-          description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d333e7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'howowowowowo so there was that thing',
-          description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d322se7f9s96a30d0a',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'My golly gee whiz so there was that thing',
-          description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-        },
-        { 
-          _id: '5aa17fe2sb7d3e227f996a30d0sa',
-          user: '5aa1734a126c22fe7769a401',
-          kind: 'do',
-          title: 'hi there was that thing',
-          description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-          image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-        },
-        { 
-          _id: '5aa17sfe2b7d333e7f9s96a30d0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'howdowowowowo so there was that thing',
-        description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-        image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-        },
-        { 
-          _id: '5aa17fe2b7d3e7f996a30dff0sa',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'so there was that thing',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-        image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-      },
-      { 
-        _id: '5aa17fe2b7d3e7f996vvva30sd0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'There once was a man',
-        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
-        image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
-      },
-      { 
-        _id: '5aa17fe2b7d3e7f996vvas30d0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'thank',
-        title: 'Yay so there was that thing',
-        description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-        image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
-      },
-      { 
-        _id: '5aa17fe2b7d3e7f9ccs96a30d0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'howowowowowo so there was that thing',
-        description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-        image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-      },
-      { 
-        _id: '5aa17fe2b7d3se7f9s9hh6a30d0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'My golly gee whiz so there was that thing',
-        description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
-        image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
-      },
-      { 
-        _id: '5aa17fe2sb7d3e7jjf996a30d0sa',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'hi there was that thing',
-        description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
-        image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
-      },
-      { 
-        _id: '5aa17sfe2b7d3eee7f9s96a30d0a',
-        user: '5aa1734a126c22fe7769a401',
-        kind: 'do',
-        title: 'howdowowowowo so there was that thing',
-        description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
-        image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
-      }
-    ],
-    isModalOpen: false,
     kind: '',
     visibility: 'public',
     name: '',
@@ -415,19 +26,12 @@ class Journal extends Component {
     image: ''
   }
 
-  async componentWillMount() {
-    // console.log('this.state compoentnly will mount', this.state, '\n this.props\n', this.props);
-    // await this.props.fetchActs()
-    // await this.props.fetchUserActs(this.props.currentUser);
-    // await this.props.fetchUserActs(1);
-    // await this.props.fetchUserActs(this.props.user);
-    // console.log('compoentnt will mpoutn user',this.props)
-  }
-
   async componentDidMount() {
+    console.log(' us.er.us.er.sur', this.props.user.user)
     await this.props.fetchActs();
-  }
 
+    await this.props.fetchUserActs(this.props.user.user.user)
+  }
 
   checkDate(date) {
     // console.log('date', date, 'previousDate',this.state.previousDate);
@@ -437,13 +41,30 @@ class Journal extends Component {
   // return this.props.user.acts.map((act) => 
   renderGrid() {
     console.log('thisssssss', this.props);
-    return this.state.acts.map((act) => {
+
+    if(!this.props.acts.userActs) {
+      return (
+        <div className="uj__body__userActs__none" key="none">
+          <div className="uj__body__userActs__none__content">
+            <h3>
+              You're empty!!!
+            </h3>
+            <p>
+              And we know you do a lot of wicked good stuff so maybe it's about time you started keeping a record :)
+            </p> 
+          </div>
+          <div className="uj__body__userActs__none__image">
+          </div>
+        </div>
+      )
+    }
+    
+    return this.props.acts.userActs.map((act) => {
 
       let dateHeader = this.checkDate(act.updated_at, this.state.previousDate);
-      let date = moment(act).format('dddd MMM Do')
 
       return (
-        <Card className="uj__act" act={ act } />
+        <Card className="uj__act" act={ act } key={ act.id } />
       )
       
     })
@@ -454,7 +75,7 @@ class Journal extends Component {
 
     return this.props.acts.communityActs.map((act) => {
       return (
-        <Card className="uj_act" act={ act } />
+        <Card className="uj_act" act={ act } key={ act._id } />
       )
     })
     // console.log('thisprops', this.props)
@@ -467,7 +88,7 @@ class Journal extends Component {
 
   render(){
     // console.log('this.props in RENDER', this.props)
-    // if(!this.props.user.acts) { return <div> loading </div> }
+    if(!this.props.user.user) { return <div> loading </div> }
 
     return(
         <div className="uj">
@@ -505,12 +126,12 @@ class Journal extends Component {
 
             <div className="uj__body__box">
 
-              <h2 className="uj__body__box__title">your do thanks</h2>
+              <h2 className="uj__body__box__title">your <span className="uj__header__logo__do stuff__and__things">do</span><span className="uj__header__logo__thank stuff__and__things">thanks</span></h2>
               <div className="uj__body__userActs">
                 { this.renderGrid() }
               </div>
           
-              <h2 className="uj__body__box__title">recent community do thanks</h2>
+              <h2 className="uj__body__box__title">recent community <span className="uj__header__logo__do stuff__and__things">do</span><span className="uj__header__logo__thank stuff__and__things">thanks</span></h2>
               <div className="uj__body__communityActs">
                 { this.renderCommunityGrid() }
               </div>
@@ -759,3 +380,387 @@ export default connect(mapStateToProps, actions)(Journal)
 
 //   </div>
 // </Modal>
+
+// acts: [
+//   { _id: 'a5aa17fe2b7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { _id: 'q5aa17fe2b7d3e7f996a30sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { _id: '5aa17fe2b7d3e7f996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { _id: '5aa17fe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { _id: '5aa17fe2b7d3se7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { _id: '5aa17fe2sb7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: 'w15aa17sfe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howdowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { _id: 'e5adfa17fe2b7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '15aa17fe2b7d3e7f996a30sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { _id: '25aa17fe2b7d3e7f996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { _id: '35aa17fe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { _id: '45aa17fe2b7d3se7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { _id: '65aa17fe2sb7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   {
+//     _id: '75aa17sfe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howdowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '335aa17fe2b7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '225aa17fe2b7d3e7f996a30sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { 
+//     _id: '115aa17fe2b7d3e7f996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { 
+//     _id: '775aa17fe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: 'j5aa17fe2b7d3se7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { 
+//     _id: 'jj5aa17fe2sb7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: 'n5aa17sfe2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howdowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   }, 
+//   { 
+//     _id: 'nn5aa17fe2b7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa5517fe2b7d3e7f996a30sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa1667fe2b7d3e7f996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fye2b7d3e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fyye2b7d3se7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { 
+//     _id: '5aa17fe2sbyy7d3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa17sfe2b7d3eyyy7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howdowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7yyd3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e7yyf996a30sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e7fyy996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3eyy7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3syye7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { 
+//     _id: '5aa17fe2sb7dyyy3e7f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa17sfe2b7d3e744f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howdowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e744f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'so there was that thing',
+//     description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e7f996a5530sd0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'There once was a man',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//     image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e777f996as30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'thank',
+//     title: 'Yay so there was that thing',
+//     description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d333e7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'howowowowowo so there was that thing',
+//     description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d322se7f9s96a30d0a',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'My golly gee whiz so there was that thing',
+//     description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+//   },
+//   { 
+//     _id: '5aa17fe2sb7d3e227f996a30d0sa',
+//     user: '5aa1734a126c22fe7769a401',
+//     kind: 'do',
+//     title: 'hi there was that thing',
+//     description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//     image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+//   },
+//   { 
+//     _id: '5aa17sfe2b7d333e7f9s96a30d0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'howdowowowowo so there was that thing',
+//   description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//   image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+//   },
+//   { 
+//     _id: '5aa17fe2b7d3e7f996a30dff0sa',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'so there was that thing',
+//   description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//   image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+// },
+// { 
+//   _id: '5aa17fe2b7d3e7f996vvva30sd0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'There once was a man',
+//   description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, ',
+//   image: 'http://www.birminghamtimes.com/wp-content/uploads/2016/01/happy.jpg' 
+// },
+// { 
+//   _id: '5aa17fe2b7d3e7f996vvas30d0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'thank',
+//   title: 'Yay so there was that thing',
+//   description: 'stuff and things Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//   image: 'http://c3.thejournal.ie/media/2013/03/state-of-the-nation-children-752x501.jpg' 
+// },
+// { 
+//   _id: '5aa17fe2b7d3e7f9ccs96a30d0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'howowowowowo so there was that thing',
+//   description: 'why oh why Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//   image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+// },
+// { 
+//   _id: '5aa17fe2b7d3se7f9s9hh6a30d0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'My golly gee whiz so there was that thing',
+//   description: 'that sure was something Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+//   image: 'https://www.livehappy.com/sites/default/files/styles/article_featured/public/main/articles/Happy-People-Sized.jpg?itok=u7umGt7r' 
+// },
+// { 
+//   _id: '5aa17fe2sb7d3e7jjf996a30d0sa',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'hi there was that thing',
+//   description: 'so what to popular belief, Lorem Ipsum is not simply random text. ',
+//   image: 'https://cdn.images.express.co.uk/img/dynamic/143/590x/Nintendo-Switch-Stock-778844.jpg' 
+// },
+// { 
+//   _id: '5aa17sfe2b7d3eee7f9s96a30d0a',
+//   user: '5aa1734a126c22fe7769a401',
+//   kind: 'do',
+//   title: 'howdowowowowo so there was that thing',
+//   description: 'why oh why Contrary to popular belief, Lorem Ipdsum is not simply random text. ',
+//   image: 'https://www.lifestan.com/wp-content/uploads/2017/10/happy.jpg' 
+// }
+// ],

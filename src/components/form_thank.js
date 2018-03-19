@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions'
 
 import './auth/auth.css';
+import './form.css';
 
 class ThankForm extends Component {
 
@@ -67,9 +68,9 @@ class ThankForm extends Component {
                     
                     <div className="thankForm__body">
                         <div className='form__fieldset__radios'>
-                            <fieldset className='fieldset__radios'>
+                            <fieldset className='fieldset__radios' required>
                                 
-                                <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="share" onChange={this.handleChange} checked />
+                                <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="share" onChange={this.handleChange} />
                                 <label htmlFor="visibility" className="actForm__radio__label">Share</label>
                             
                                 <input id="visibility" name="visibility" type="radio" className="actForm__radio__input" value="private" onChange={this.handleChange}  />

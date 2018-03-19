@@ -3,6 +3,12 @@ body {
     padding: 0;
     font-family: Dosis;
     color: #2f3352;
+    font-size: 62.5%;
+    
+    @media only screen and (max-width: 800px) {
+        font-size: 75%;
+    }
+
 }
 
 h2 {

@@ -17,9 +17,12 @@
     font-size: 4rem;
 }
 
+
 .resources__content {
     padding: 2rem 15rem;
 }
+
+
 
 .resources__content > h2, .resources__content__links > h2 {
     color: rgba(255, 114, 159, 1);
@@ -29,6 +32,20 @@
     text-align: center;
     margin-top: 3rem;
 }
+
+@media screen and (max-width: 450px) {
+    .resources__title {
+        font-size: 1.7rem;
+        height: 8rem;
+    }
+    .resources__content {
+        padding: 2rem;
+    }
+    .resources__content > h2 {
+        font-size: 3rem;
+    }
+}
+
 
 .resources__content__list {
     background-color: rgba(148, 149, 185, 1);

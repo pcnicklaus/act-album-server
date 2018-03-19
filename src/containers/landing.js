@@ -11,7 +11,7 @@ class Home extends Component {
 
 
   // Dosis|Droid+Sans|Lobster|Nunito|PT+Sans+Narrow|Quicksand|Shadows+Into+Light|Varela+Round
-
+  
 
   render() {
 
@@ -31,7 +31,7 @@ class Home extends Component {
             </div>
             <div className="header--verbiage">
               <h1 className="header--believe">We believe</h1>
-              <h2 className="header--small">small acts can cause</h2>
+              <h2 className="header--small">small acts cause</h2>
               <h1 className="header--change">big change</h1>
               
             </div>
@@ -90,7 +90,9 @@ class Home extends Component {
 
 
           <div className="thank">
-            <div className="thank--image"></div>
+            <Link to="/thank" className="link">
+              <div className="thank--image"></div>
+            </Link>
             <div className="thank--verbiage">
                 <h2>thank</h2>
                 <p>(appreciate, commend...)</p>

@@ -23,19 +23,34 @@ rgba(245, 249, 252, 0.9)
     font-family: Comfortaa;
     font-size: 4rem;
 }
+@media screen and (max-width: 450px) {
+    .story__title {
+        font-size: 2rem;
+        height: 8rem;
+    }
+}
 
 .story__body {
     margin-top: 5rem;
 }
 .story__content {
     padding: 2rem 15rem;
-
-
+    font-size: 1.5rem;
 }
-.story__content__one {
-
+@media screen and (max-width: 900px) {
+    .story__content {
+        padding: 2rem 5rem;
+    }
 }
-.story__content__one > h2, .story__content__two h2 {
+
+@media screen and (max-width: 450px) {
+    .story__content {
+       padding: 10px;
+       font-size: 1.1rem;
+    }
+}
+
+.story__content__one > h2, .story__content__two__title {
     color: rgba(255, 114, 159, 1);
     font-size: 2rem;
     margin-bottom: 0;
@@ -46,12 +61,62 @@ rgba(245, 249, 252, 0.9)
     padding-top: 0;
     font-size: .7rem;
 }
+
+@media screen and (max-width: 450px) {
+    .story__content__one h2 {
+      margin-top: 1rem;
+      /* padding-top: .5rem; */
+      /* border-radius: 5px 5px 0 0; */
+    }
+    .story__content__one__subhead {
+        /* margin-bottom: 1rem; */
+        padding-bottom: .5rem;
+        text-align: right;
+        /* border-radius: 0 0 5px 5px; */
+    }
+    .story__para__one {
+        position: relative;
+    }
+    .story__para__one::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 1px;
+        bottom: 0;
+        left: 10%;
+        top: -10px;
+        border-top: 1px solid rgba(148, 149, 185, 1);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .story__content__one h2, .story__content__one__subhead {
+        /* text-align: center; */
+        color:  rgba(255, 114, 159, 1);
+        /* color: white; */
+    }
+}
 .story__content__two {
     margin-top: 2rem;
 }
 
 .story__content__two__body {
 
+}
+@media screen and (max-width: 450px) {
+    .story__content__two__title {
+       font-size: 1.3rem;
+    }
+    /* .story__content__two__title::before{
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 1px;
+        bottom: -25%;
+        left: 10%;
+        
+        border-top: 4px solid rgba(148, 149, 185, 1);
+    } */
 }
 .story__content__two__body > h4 {
     margin: 0;
@@ -78,6 +143,11 @@ rgba(245, 249, 252, 0.9)
     margin-top: 3rem;
     border-radius: 4px;
     color: white;
+}
+@media screen and (max-width: 450px) {
+    .story__content__three {
+        padding: 1rem;
+    }
 }
 .story__content__three > h2 {
     text-align: center;

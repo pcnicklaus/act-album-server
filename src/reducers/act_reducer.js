@@ -2,7 +2,8 @@ import {
   CREATE_ACT,
   FETCH_USER_ACTS,
   FETCH_ACT,
-  FETCH_ACTS
+  FETCH_ACTS,
+  AUTH_USER
  } from '../actions/types';
 
 export default function( state = {}, action) {
@@ -19,6 +20,7 @@ export default function( state = {}, action) {
     case CREATE_ACT:
       return { ...state }
     case FETCH_ACT:
+      console.log('state in reducer', state, action.payload)
       return { ...state, activeAct: action.payload }
   }
 

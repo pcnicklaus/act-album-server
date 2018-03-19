@@ -95,7 +95,7 @@ export function fetchUserActs(user_id) {
         }
       }
     axios
-      .get(`${ROOT_URL}/${user_id}`, config)
+      .get(`${ROOT_URL}/journal/${user_id}`, config)
       .then( res => {
         console.log('res\n', res.data)
         dispatch({
@@ -145,10 +145,15 @@ export function fetchActs() {
 
 export function fetchAct(id) {
   return function(dispatch){
-    axios.get(`${ROOT_URL}/ACT/${id}`, {
+
+    console.log('id in actions / fect act', id)
+
+    axios.get(`${ROOT_URL}/act/${id}`, {
       headers: { authorization: localStorage.getItem('token')}
     })
       .then(response => {
+
+        console.log('response in fecth act', response)
 
         dispatch({
           type: FETCH_ACT,
