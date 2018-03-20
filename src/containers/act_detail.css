@@ -39,7 +39,7 @@
 }
 .actDetail__verbiage {
     flex: 0 0 40%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @media screen and (max-width: 450px) {
