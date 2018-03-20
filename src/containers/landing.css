@@ -382,7 +382,7 @@
 }
 @media screen and (max-width: 450px) {
   .how__two__left, .how__two__right, .how__three__left, .how__three__right {
-    height: 12rem !important;
+    height: 20rem !important;
     background-position: top;
     width: 100%;
   }
@@ -397,11 +397,11 @@
 
 }
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .how__box__verbiage {
     padding: 2px;
   }
-}
+} */
 
 .how__box__verbiage p {
   display: block;
@@ -436,8 +436,11 @@
 }
 
 @media screen and (max-width: 450px) {
+  .how__box__verbiage h2 {
+    font-size: 2.3rem;
+  }
   .how__box__verbiage p {
-    font-size: .6rem !important;
+    font-size: 1 !important;
     margin: 0 !important;
   }
 }

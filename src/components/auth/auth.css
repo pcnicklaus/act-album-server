@@ -228,13 +228,13 @@
 }
 
 .uj__header__logo__mobile {
-    display: none;
+    visibility: hidden;
     width: 0;
 }
 
 @media screen and (max-width: 450px) {
     .uj__header__logo__mobile {
-        display: visible;
         width: 100%;
+        visibility: visible;
     }
 }
