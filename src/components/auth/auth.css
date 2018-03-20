@@ -32,6 +32,15 @@
     /* box-sizing: border-box; */
 
 }
+
+}
+.signupForm__fields__box, .signinForm__fields__box, .signinForm__field__input {
+    background-color: rgba(245, 249, 252, 0.9);
+    padding: 4rem 3rem 3rem 3rem;
+    position:relative;
+    border-radius: 5px;
+}
+
 @media screen and (max-width: 450px) {
     .signupForm__logo, .signinForm__logo {
         display: none;
@@ -40,13 +49,6 @@
     .signupForm__field__label__input {
         background-color: rgba(245, 249, 252, 0.9);
 
-    }
-}
-.signupForm__fields__box, .signinForm__fields__box, .signinForm__field__input {
-    background-color: rgba(245, 249, 252, 0.9);
-    padding: 4rem 3rem 3rem 3rem;
-    position:relative;
-    border-radius: 5px;
 }
 
 @media screen and (max-width: 450px) {
