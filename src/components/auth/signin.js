@@ -32,6 +32,7 @@ class Signin extends Component {
         </div>
         <div className="signin__container">
 
+          <h1 className="uj__header__logo__mobile">Sign In</h1>
 
             <form
               className="signinForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -42,7 +43,7 @@ class Signin extends Component {
                 <div className="uj__header__logo signinForm__logo">
                   <h1 className="uj__header__logo__do">do</h1>
                   <h1 className="uj__header__logo__thank">thank</h1>
-                  <h1 className="uj__header__logo__mobile">Sign In</h1>
+                  
                 </div>
 
                 <fieldset className="signinForm__field">
