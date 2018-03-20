@@ -7,7 +7,7 @@ import { reduxForm } from 'redux-form';
 
 import * as actions from '../actions'
 
-import './act_form.css';
+// import './act_form.css';
 
 const label = `{
   <div>

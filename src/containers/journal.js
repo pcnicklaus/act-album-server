@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form';
 import axios from 'axios';
 
 import Card from '../components/card';
-import ActForm from './act_form';
+
 
 import * as actions from '../actions'
 import './journal.css';
@@ -150,7 +150,7 @@ class Journal extends Component {
   <SelectingFormValuesForm onSubmit=  { (results) => console.log("results", results) } />
 </div> */}
       //   <div className="uj__body__controls">
-      //   <ActForm history={ this.props.history }/>
+      
       // </div>
 
 function mapStateToProps(state) {
@@ -313,21 +313,21 @@ export default connect(mapStateToProps, actions)(Journal)
 
 //     <fieldset className='form-group'>
 
-//       <input id="thank" name="kind" type="radio" className="actForm__radio__input" value="do" onChange={this.handleChange} />
-//       <label htmlFor="thank" className="actForm__radio__label">Do</label>
+//       <input id="thank" name="kind" type="radio" {this.handleChange} />
+//       <label htmlFor="thank" 
 
-//       <input id="thank" name="kind" type="radio" className="actForm__radio__input" value="thank" onChange={this.handleChange} />
-//       <label htmlFor="thank" className="actForm__radio__label">Thank</label>
+//       <input id="thank" name="kind" type="radio" {this.handleChange} />
+//       <label htmlFor="thank" 
 
 //     </fieldset>
 
 //     <fieldset className='form-group'>
 
-//       <input id="kind" name="visibility" type="radio" className="actForm__radio__input" value="do" onChange={this.handleChange}  />
-//       <label htmlFor="kind" className="actForm__radio__label">Share</label>
+//       <input id="kind" name="visibility" type="radio" {this.handleChange}  />
+//       <label htmlFor="kind" 
 
-//       <input id="kind" name="visibility" type="radio" className="actForm__radio__input" value="private" onChange={this.handleChange}  />
-//       <label htmlFor="private" className="actForm__radio__label">Private</label>
+//       <input id="kind" name="visibility" type="radio" {this.handleChange}  />
+//       <label htmlFor="private" 
 
 //     </fieldset>
 
