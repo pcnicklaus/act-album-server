@@ -48,7 +48,7 @@
     .signinForm__field__input, 
     .signupForm__field__label__input {
         background-color: rgba(245, 249, 252, 0.9);
-
+    }
 }
 
 @media screen and (max-width: 450px) {
