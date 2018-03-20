@@ -67,7 +67,7 @@ class Signup extends Component {
           
         </div>
         <div className="signup__container">
-          <h1 className="uj__header__logo__mobile">Sign In</h1>
+          {/* <h1 className="uj__header__logo__mobile">Sign In</h1> */}
           <form
             className="signupForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
           >

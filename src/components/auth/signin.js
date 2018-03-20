@@ -32,7 +32,7 @@ class Signin extends Component {
         </div>
         <div className="signin__container">
 
-          <h1 className="uj__header__logo__mobile">Sign In</h1>
+          {/* <h1 className="uj__header__logo__mobile">Sign In</h1> */}
 
             <form
               className="signinForm" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
