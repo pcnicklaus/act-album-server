@@ -16,7 +16,7 @@ import {
 
 } from './types';
 
-const ROOT_URL = 'https://actalbum-server.herokuapp.com/';
+const ROOT_URL = 'https://actalbum-server.herokuapp.com';
 // const ROOT_URL = 'http://localhost:3090';
 
 export function signinUser({ email, password }) {
