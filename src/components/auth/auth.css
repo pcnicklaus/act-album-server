@@ -1,3 +1,10 @@
+.button__cancel {
+    background-color: rgba(145,144,108,.2);
+}
+.button__submit {
+    background-color: rgba(245, 248, 248, 0.5) ;
+}
+
 .signup, .signin, .thankForm {
     height: 100vh;
     font-family: Comfortaa;
@@ -116,9 +123,7 @@
     text-decoration: none;
 }
 
-.signinForm__button__submit, .signupForm__button__submit {
-    background-color: 
-}
+
 
 .alert__message {
     margin: .5rem;
@@ -220,4 +225,16 @@
 
 .actForm__radio__label {
     margin-right: 1rem;
+}
+
+.uj__header__logo__mobile {
+    display: none;
+    width: 0;
+}
+
+@media screen and (max-width: 450px) {
+    .uj__header__logo__mobile {
+        display: visible;
+        width: 100%;
+    }
 }

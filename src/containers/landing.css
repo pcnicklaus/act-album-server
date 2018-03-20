@@ -146,14 +146,14 @@
 
 @media screen and (max-width: 450px) {
   .header--believe {
-    top: 25rem;
+    top: 22rem;
     font-size: 3rem;
     right: 1rem;
   };
 }
 @media screen and (max-width: 450px) {
   .header--change {
-    top: 29rem;
+    top: 26rem;
     font-size: 3rem;
     /* width: 100%; */
     right: 1rem;
@@ -161,7 +161,7 @@
 }
 @media screen and (max-width: 450px) {
   .header--small {
-    top: 28rem;
+    top: 25rem;
     right: 1rem;
   };
 }
@@ -264,6 +264,8 @@
   .how__two, .how__three {
     padding: 0;
     min-height: 10rem !important;
+    display: flex;
+    flex-direction: column
   }
   .how__two {
     margin-top: 1rem;
@@ -321,7 +323,6 @@
 }
 @media screen and (max-width: 450px) {
   .how__title p {
-    font-size: .7rem !important;
     width: 80%;
   }
 }
@@ -381,8 +382,9 @@
 }
 @media screen and (max-width: 450px) {
   .how__two__left, .how__two__right, .how__three__left, .how__three__right {
-    height: 10rem !important;
+    height: 12rem !important;
     background-position: top;
+    width: 100%;
   }
 }
 
@@ -552,9 +554,9 @@
     font-size: 2rem;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .do--verbiage h2, .thank--verbiage h2, .journal--verbiage h2 {
-    font-size: 1.6rem;
+    font-weight: 500;
   }
 }
 
@@ -573,7 +575,7 @@
 
 @media screen and (max-width: 600px) {
   .do--verbiage p, .thank--verbiage p, .journal--verbiage p {
-    font-size: .7rem;
+    /* font-size: .7rem; */
     margin: 0;
   }
 }

@@ -64,6 +64,7 @@ class Signup extends Component {
         <div className="uj__header__logo signup__header__logo"  style={{position: 'absolute'}}>
           <h1 className="uj__header__logo__do">do</h1>
           <h1 className="uj__header__logo__thank">thank</h1>
+          <h1 className="uj__header__logo__mobile">Sign In</h1>
         </div>
         <div className="signup__container">
           <form
@@ -81,9 +82,9 @@ class Signup extends Component {
               {this.renderAlert()}
 
               <div className="signupForm__button">
-                <button className="signupForm__button__cancel" ><Link to={'/'}>Cancel</Link></button>
+                <button className="signinForm__button__cancel button__cancel" ><Link to={'/'}>Cancel</Link></button>
                 
-                <button action="submit" className="signupForm__button__submit" >Sign up!</button>
+                <button action="submit" className="signupForm__button__submit button__submit" >Sign up!</button>
 
               </div>
 

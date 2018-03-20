@@ -42,6 +42,7 @@ class Signin extends Component {
                 <div className="uj__header__logo signinForm__logo">
                   <h1 className="uj__header__logo__do">do</h1>
                   <h1 className="uj__header__logo__thank">thank</h1>
+                  <h1 className="uj__header__logo__mobile">Sign In</h1>
                 </div>
 
                 <fieldset className="signinForm__field">
@@ -57,9 +58,9 @@ class Signin extends Component {
                 {this.renderAlert()}
 
                 <div className="signinForm__button">
-                  <button className="signinForm__button__cancel" ><Link to={'/'}>Cancel</Link></button>
+                  <button className="signinForm__button__cancel button__cancel" ><Link to={'/'}>Cancel</Link></button>
                   
-                  <button action="submit" className="signinForm__button__submit" >Sign in</button>
+                  <button action="submit" className="signinForm__button__submit button__submit" >Sign in</button>
 
                 </div>
               </div>

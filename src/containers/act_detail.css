@@ -40,7 +40,12 @@
 .actDetail__verbiage {
     flex: 0 0 40%;
     overflow: hidden;
-    order: 2;
+}
+
+@media screen and (max-width: 450px) {
+    .actDetail__verbiage {
+        order: 2;
+    }
 }
 
 .actDetail__body {

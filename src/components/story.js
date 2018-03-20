@@ -40,8 +40,8 @@ class Story extends Component {
               </div>
 
               <div className="story__content__three">
-                <h2>What can we do to help?</h2>
-                <p>Anything!! Everything!!! Something!! Not Nothing!!! Wait, that work… Am I still typing… :)  But seriously, drop us a line at call.up.change@gmail.com because we could sure use your help!!</p>
+                <h2>What can you do to help?</h2>
+                <p>Anything! Everything! Something! Not Nothing! Soon? Sooner? Late? Latte? That sounds delicious!! Wait a second... Am I still typing? But seriously, drop us a line at act <a href="mailto:do.thank.album@gmail.com?Subject=Help%20sweet%20help" className="mailto--link" target="_top">do.thank.album@gmail.com</a> because we could sure use your help!!</p>
               </div>
 
             

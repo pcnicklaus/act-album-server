@@ -108,7 +108,7 @@ class ThankForm extends Component {
                         <div className="form__buttons">
                             <button
                                 type="button"
-                                className="form__buttons__cancel"
+                                className="form__buttons__cancel button__cancel"
                                 onClick={ () => { 
                                     
                                     this.props.history.push('/') } }
@@ -120,7 +120,7 @@ class ThankForm extends Component {
                             
                             <button
                                 type="button"
-                                className="signinForm__button__submit"
+                                className="signinForm__button__submit button__submit"
                                 onClick={() => this.createNewAct() }
                             >
                                 <p>Create</p>

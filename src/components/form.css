@@ -8,15 +8,15 @@
        margin-top: 1rem;
     }
     .form__fieldset input, .form__fieldset textarea {
-        background-color:  rgba(148, 149, 185, .4);
+        background-color:  rgba(245,249,252,.9);
     }
     .thankForm__title h1, .doForm__title h1 {
         margin-top: 0;
         padding-top: 0; 
     }
-    .signinForm__button__submit, .signupForm__button__submit, .signinForm__button__cancel, .signupForm__button__cancel .form__buttons__submit, .form__buttons__cancel {
+    /* .signinForm__button__submit, .signupForm__button__submit, .signinForm__button__cancel, .signupForm__button__cancel .form__buttons__submit, .form__buttons__cancel {
         padding: 0 1rem;
-    }
+    } */
     .form__input {
         box-sizing: border-box;
     }
