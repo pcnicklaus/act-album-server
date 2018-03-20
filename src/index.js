@@ -8,7 +8,6 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/app';
 import Home from './containers/landing';
 
-// import CallUp from './containers/callup_create';
 import Journal from './containers/journal';
 
 import ActDetail from './containers/act_detail';
@@ -46,7 +45,7 @@ ReactDOM.render(
         <Route path="do" component={DoForm} />
         <Route path="resources" component={Resources} />
         {/* <Route path="journal" component={ RequireAuth(Journal) } /> */}
-        <Route path="journal" component={ Journal } />
+        <Route path="journal" component={ RequireAuth(Journal) } />
         <Route path="act/:id" component={ActDetail} />
 
       </Route>
