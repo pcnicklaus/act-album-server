@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 // page components
 import App from './components/app';
@@ -52,5 +52,5 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>
-  , document.getElementById('root'));
-registerServiceWorker();
+, document.getElementById('root'));
+// registerServiceWorker();
