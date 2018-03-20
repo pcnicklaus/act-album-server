@@ -227,7 +227,7 @@
     margin-right: 1rem;
 }
 
-/* .uj__header__logo__mobile {
+.uj__header__logo__mobile {
     visibility: hidden;
     width: 0;
 }
@@ -237,4 +237,4 @@
         width: 100%;
         visibility: visible
     }
-} */
+}
