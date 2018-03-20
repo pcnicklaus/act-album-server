@@ -16,7 +16,7 @@ import {
 
 } from './types';
 
-// const ROOT_URL = 'https://ACT-server.herokuapp.com';
+// const ROOT_URL = 'https://act-server.herokuapp.com';
 const ROOT_URL = 'http://localhost:3090';
 
 export function signinUser({ email, password }) {
