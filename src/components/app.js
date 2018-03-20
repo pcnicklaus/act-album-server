@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import Header from '../containers/blocks/_header';
 
 import './app.css';
 
